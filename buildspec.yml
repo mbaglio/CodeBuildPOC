@@ -8,7 +8,7 @@ phases:
     commands:
       - echo Nothing to do in the pre_build phase...
       - echo Entered the pre_build phase
-      - aws s3 cp https://s3-us-west-2.amazonaws.com/codebuildpoc/test_rsa /root/.ssh/id_rsa
+      - aws s3 cp s3://codebuildpoc/test_rsa /root/.ssh/id_rsa
       - chmod 0600 /root/.ssh/id_rsa
   build:
     commands:
