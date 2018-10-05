@@ -14,5 +14,39 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>	
-  </dependencies>  
+  </dependencies>
+  <profiles>
+  	<profile>
+  		 <id>UnitTests</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${failsafe.plugin.version}</version>
+                    <configuration>
+                        <!--Exclude load tests by default-->
+                        <excludedGroups>com.test.lib.categories.LoadTestCategory</excludedGroups>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+   	</profile>
+  	<profile>
+  		 <id>IntegrationTests</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${failsafe.plugin.version}</version>
+                    <configuration>
+                        <!--Exclude load tests by default-->
+                        <excludedGroups>com.test.lib.categories.LoadTestCategory</excludedGroups>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+   	</profile>
+  </profiles>  
 </project>
